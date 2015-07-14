@@ -5,7 +5,7 @@
 
 int main(){
 
-	const int num = 10000;
+	const int num = 3;
 	int i, j;
 	static int x[10000], A[10000][10000];
 	srand(time(NULL));
@@ -23,17 +23,17 @@ int main(){
 		return 1;
 	}
 
-	fprintf(Afile, "%d", num);
+	fprintf(Afile, "%d \n", num);
 
 	for(i=0; i<num; i++)
 	{
 		x[i]=rand()%1000;
-		fprintf(result, "%d", x[i]);
+		fprintf(result, "%d\n", x[i]);
 	}
 
 	for(i=0; i<num; i++)
 	{
-		for(j=1; j<=num; j++){
+		for(j=0; j<num; j++){
 			A[i][j]=rand()%1000;
 			fprintf(Afile, "%d ", A[i][j]);
 		}
@@ -42,14 +42,13 @@ int main(){
 
 
 	float soma, aux;
-	for(i=1; i<num; i++){
+	for(i=0; i<num; i++){
 		soma=0;
-		for(j=1; j<=num; j++){
+		for(j=0; j<num; j++){
 			aux=A[i][j] * x[j];
 			soma=aux+soma;
-		    fprintf(Afile, "%f ", soma);
 		}
-		fprintf(Afile,"\n");
+		fprintf(Afile, "%f ", soma);
 	}
 
 	fclose(Afile);
